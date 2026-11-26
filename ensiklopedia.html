@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f4e9">
+  <title>Ensiklopedia Desa - Si Dower</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="ensiklopedia.css">
+</head>
+<body>
+
+  <!-- NAVBAR SI DOWER -->
+  <header class="site-header" id="top">
+    <a class="brand" href="index.html" aria-label="Si Dower, kembali ke beranda">
+      <span class="brand-mark"><span>SD</span></span>
+      <span class="brand-copy">
+        <strong>Si Dower</strong>
+        <small>Jelajah Dawarblandong</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Buka navigasi" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
+      <a href="index.html">Beranda</a>
+      <a href="peta-digital.html">Peta Digital</a>
+      <a href="ensiklopedia.html">Ensiklopedia</a>
+      <a class="" href="game-edukasi.html">Game Edukasi</a>
+      <a href="index.html#tentang">Tentang</a>
+    </nav>
+
+    <a class="header-cta" href="#arena-game">
+      Mulai Bermain <span>↗</span>
+    </a>
+  </header>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">
+      <span></span> ENSIKLOPEDIA KEARIFAN LOKAL
+    </div>
+
+    <h1>
+      Mengenal Desa,<br>
+      Menjelajahi <span>Cerita.</span>
+    </h1>
+
+    <p>
+      Setiap desa memiliki keunikan dan cerita tersendiri.
+      Temukan kekayaan budaya, tradisi, kuliner, sejarah,
+      dan potensi lokal dari 18 desa di Kecamatan Dawarblandong.
+    </p>
+
+    <div class="hero-info">
+      <div class="info-icon">📖</div>
+      <div>
+        <strong>18 Desa, Banyak Cerita</strong>
+        <small>Ruang pengetahuan dan kearifan lokal.</small>
+      </div>
+    </div>
+
+    <div class="hero-decoration">✳</div>
+  </section>
+
+  <!-- DAFTAR DESA -->
+  <main class="container" id="daftar-desa">
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">
+          <span></span> JELAJAHI DAERAH KITA
+        </div>
+
+        <h2>Ensiklopedia <span>Desa.</span></h2>
+
+        <p>
+          Pilih desa untuk mengenal lebih dekat cerita dan
+          keunikan yang dimilikinya.
+        </p>
+      </div>
+
+      <div class="total-desa">
+        <strong id="totalDesa">18</strong>
+        <span>Desa</span>
+      </div>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-area">
+      <div class="search-box">
+        <span>⌕</span>
+        <input
+          type="search"
+          id="searchDesa"
+          placeholder="Cari nama desa atau cerita..."
+        >
+      </div>
+
+      <small>Temukan cerita dari desa yang ingin kamu kenali.</small>
+    </div>
+
+    <!-- CARD DESA -->
+    <div class="desa-grid" id="desaGrid">
+      <!-- Kartu dibuat otomatis melalui ensiklopedia.js -->
+    </div>
+
+    <div class="empty-message" id="emptyMessage" hidden>
+      <span>🔎</span>
+      <h3>Desa tidak ditemukan</h3>
+      <p>Coba gunakan kata pencarian lainnya.</p>
+    </div>
+
+  </main>
+
+  <!-- DETAIL DESA / ARTIKEL -->
+  <div class="modal" id="desaModal">
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <div class="modal-content">
+
+      <button class="modal-close" id="modalClose">×</button>
+
+      <div class="detail-cover">
+        <img id="detailImage" src="" alt="">
+        <div class="cover-overlay"></div>
+
+        <div class="cover-title">
+          <span id="detailCategory">CERITA LOKAL</span>
+          <h2 id="detailName">Nama Desa</h2>
+        </div>
+      </div>
+
+      <div class="detail-body">
+
+        <div class="eyebrow">
+          <span></span> ENSIKLOPEDIA SI DOWER
+        </div>
+
+        <p class="detail-intro" id="detailIntro"></p>
+
+        <div class="article-heading">
+          <h3>Cerita dan Kekayaan Desa</h3>
+          <p>Kenali berbagai hal menarik dari desa ini.</p>
+        </div>
+
+        <div class="article-list" id="articleList">
+          <!-- Artikel desa dibuat melalui JavaScript -->
+        </div>
+
+        <button class="back-button" id="closeDetail">
+          ← Kembali ke Ensiklopedia
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <a href="index.html" class="brand">
+        <span class="brand-logo">SD</span>
+        <span class="brand-name">
+          <strong>Si Dower</strong>
+          <small>Jelajah Dawarblandong</small>
+        </span>
+      </a>
+
+      <p>
+        Mengenal, menjaga, dan merayakan<br>
+        kearifan lokal Dawarblandong.
+      </p>
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span> Si Dower.
+      Ruang Cerita Dawarblandong.
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop">↑</button>
+
+  <script src="ensiklopedia.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Edukasi | Si Dower</title>
+  <link rel="stylesheet" href="game-edukasi.css">
+</head>
+<body>
+
+  <!-- NAVBAR SI DOWER -->
+  <header class="site-header" id="top">
+    <a class="brand" href="index.html" aria-label="Si Dower, kembali ke beranda">
+      <span class="brand-mark"><span>SD</span></span>
+      <span class="brand-copy">
+        <strong>Si Dower</strong>
+        <small>Jelajah Dawarblandong</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Buka navigasi" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
+      <a href="index.html">Beranda</a>
+      <a href="peta-digital.html">Peta Digital</a>
+      <a href="ensiklopedia.html">Ensiklopedia</a>
+      <a class="active" href="game-edukasi.html">Game Edukasi</a>
+      <a href="index.html#tentang">Tentang</a>
+    </nav>
+
+    <a class="header-cta" href="#arena-game">
+      Mulai Bermain <span>↗</span>
+    </a>
+  </header>
+
+  <main>
+    <!-- PEMBUKA -->
+    <section class="game-hero">
+      <div class="hero-content">
+        <span class="eyebrow">🎮 ARENA PETUALANGAN</span>
+        <h1>Petualangan<br><span>Si Dower!</span></h1>
+        <p>
+          Ayo bantu Si Dower menjelajahi dunia, menemukan bintang,
+          dan menjawab pertanyaan seru!
+        </p>
+        <a href="#arena-game" class="start-button">Ayo Bermain! <span>→</span></a>
+      </div>
+
+      <div class="hero-decoration">
+        <div class="hero-star">⭐</div>
+        <div class="hero-character">🧒</div>
+        <div class="hero-cloud cloud-one">☁️</div>
+        <div class="hero-cloud cloud-two">☁️</div>
+      </div>
+    </section>
+
+    <!-- ARENA GAME -->
+    <section class="game-section" id="arena-game">
+      <div class="section-heading">
+        <span class="eyebrow">DUNIA PERMAINAN</span>
+        <h2>Ayo Mulai Petualanganmu!</h2>
+        <p>Kumpulkan 5 bintang dengan menjawab pertanyaan.</p>
+      </div>
+
+      <div class="game-panel">
+        <div class="game-topbar">
+          <div class="level-info">
+            <span class="level-icon">🌳</span>
+            <div>
+              <strong>Petualangan Desa</strong>
+              <small>Level 1 · Penjelajah Cilik</small>
+            </div>
+          </div>
+
+          <div class="game-stats">
+            <div class="stat">
+              <span>⭐</span>
+              <strong id="starCount">0 / 5</strong>
+            </div>
+            <div class="stat">
+              <span>🏆</span>
+              <strong id="scoreCount">0</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="game-canvas-wrap">
+          <canvas id="gameCanvas" width="900" height="420"
+            aria-label="Arena permainan Petualangan Si Dower"></canvas>
+
+          <div class="game-overlay" id="startOverlay">
+            <div class="overlay-card">
+              <div class="overlay-icon">🧒 ⭐</div>
+              <h2>Siap Berpetualang?</h2>
+              <p>Bantu Si Dower mengumpulkan 5 bintang!</p>
+              <button class="primary-button" id="startButton">Mulai Game</button>
+              <small>Gunakan tombol panah atau A dan D untuk bergerak.</small>
+            </div>
+          </div>
+
+          <div class="game-overlay hidden" id="questionOverlay">
+            <div class="question-card">
+              <span class="question-label">⭐ TANTANGAN BINTANG</span>
+              <h2 id="questionTitle">Pertanyaan untukmu!</h2>
+              <p id="questionText"></p>
+              <div class="answer-list" id="answerList"></div>
+              <p class="answer-feedback" id="answerFeedback" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div class="game-overlay hidden" id="winOverlay">
+            <div class="overlay-card win-card">
+              <div class="overlay-icon">🏆</div>
+              <h2>Hebat! Kamu Berhasil!</h2>
+              <p>Semua bintang berhasil dikumpulkan. Kamu adalah Penjelajah Cilik Si Dower!</p>
+              <div class="win-score">⭐ <strong id="finalScore">50</strong> Poin</div>
+              <button class="primary-button" id="restartButton">Main Lagi</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- KONTROL MOBILE -->
+        <div class="mobile-controls">
+          <div class="move-controls">
+            <button class="control-button" id="leftButton" aria-label="Kiri">◀</button>
+            <button class="control-button" id="rightButton" aria-label="Kanan">▶</button>
+          </div>
+          <button class="control-button jump-button" id="jumpButton">LOMPAT ⬆</button>
+        </div>
+
+        <div class="game-instructions">
+          <div>⌨️ <strong>Gerak:</strong> ← → atau A D</div>
+          <div>⬆️ <strong>Lompat:</strong> Spasi atau tombol lompat</div>
+          <div>⭐ <strong>Misi:</strong> Temukan dan jawab 5 tantangan</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARA BERMAIN -->
+    <section class="how-to-play">
+      <div class="section-heading">
+        <span class="eyebrow">PANDUAN BERMAIN</span>
+        <h2>Bagaimana Cara Bermain?</h2>
+      </div>
+
+      <div class="instruction-grid">
+        <article class="instruction-card">
+          <span>🎮</span>
+          <h3>1. Bergerak</h3>
+          <p>Gerakkan Si Dower ke kiri dan kanan, lalu lompat melewati rintangan.</p>
+        </article>
+        <article class="instruction-card">
+          <span>⭐</span>
+          <h3>2. Cari Bintang</h3>
+          <p>Temukan bintang yang tersebar di sepanjang perjalanan.</p>
+        </article>
+        <article class="instruction-card">
+          <span>💡</span>
+          <h3>3. Jawab Soal</h3>
+          <p>Jawab pertanyaan dengan benar untuk mendapatkan bintang dan poin.</p>
+        </article>
+        <article class="instruction-card">
+          <span>🏆</span>
+          <h3>4. Menang!</h3>
+          <p>Kumpulkan semua 5 bintang dan jadilah Penjelajah Cilik Si Dower.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="game-footer">
+    <p>© 2026 Si Dower · Jelajah Dawarblandong</p>
+  </footer>
+
+  <script src="game-edukasi.js"></script>
+</body>
+</html>
